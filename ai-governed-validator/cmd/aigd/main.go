@@ -5,7 +5,7 @@ import (
 
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	aiapp "github.com/donovansolms/cosmos-experiments/ai-governed-chain/app"
+	aiapp "github.com/donovansolms/cosmos-experiments/ai-governed-validator/app"
 )
 
 func main() {

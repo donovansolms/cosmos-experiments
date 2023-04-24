@@ -1,0 +1,12 @@
+{
+    "title": "Launch Neutron on Replicated Security",
+    "description": "Summary: passed in July 2022, providing support and $ATOM funding to the development of Neutron, a DeFi Hub and permission-less CosmWasm execution layer to be launched on Cosmos Hub as a consumer chain. Neutron’s initial development is now complete: all core modules have been implemented, audited, and successfully run on testnet (Quark, Game of Chains, Baryon, Rehearsal, Meson, Pion and others). Through bleeding-edge Interchain Transaction and Interchain Queries modules, Neutron is now ready to bring truly interoperable smart-contracts to the Cosmos Hub. This document provides detailed information about Neutron and its future relationship to the Hub, and proposes to launch Neutron as a consumer chain using replicated security. It incorporate community feedback in the form of a soft opt-out feature for the bottom 5% validators, an extended downtime window (~4 days) and allocating unclaimed airdrop tokens to the Cosmos Hub.",
+    "changes": [
+        {
+            "subspace": "staking",
+            "key": "UnbondingTime",
+            "value": "3600000000000"
+        }
+    ],
+    "deposit": "10000000stake"
+}

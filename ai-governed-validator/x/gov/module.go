@@ -13,7 +13,7 @@ import (
 	govv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	keeper "github.com/donovansolms/cosmos-experiments/ai-governed-chain/x/gov/keeper"
+	keeper "github.com/donovansolms/cosmos-experiments/ai-governed-validator/x/gov/keeper"
 )
 
 // Module init related flags

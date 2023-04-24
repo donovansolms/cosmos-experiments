@@ -1,0 +1,12 @@
+{
+    "title": "Enable IBC on Mars Hub",
+    "description": "Summary This proposal aims to get community approval to enable IBC on Mars Hub. Abstract This proposal seeks to get approval to enable the use of IBC on Mars Hub. Motivation Mars Hub's mainnet from its launch can be seen to have IBC disabled. This doesn't permit Mars Hub and its users to benefit from being able to transfer assets from one chain to another, nor does it allow Mars Hub to transfer protocol revenues from its outposts, as detailed in the . Specification No additional development is required to enable IBC on Mars Hub. All that is required is the change of a set of parameters from False to True. Risks The use of IBC is now considered standard practice within the Cosmos ecosystem. Given that no amendments to the SDK will be made as it pertains to IBC, we don't foresee significant technical risks associated with enabling IBC. Enabling IBC facilitates moving value from Mars Hub to other chains, which could affect the future usage levels, value or security of Hars Hub, but Mars validator/staking rewards should be sufficient to maintain sufficient value and activity on Mars Hub.",
+    "changes": [
+        {
+            "subspace": "staking",
+            "key": "UnbondingTime",
+            "value": "3600000000000"
+        }
+    ],
+    "deposit": "10000000stake"
+}

@@ -8,7 +8,7 @@ import (
 	govkeeper "github.com/cosmos/cosmos-sdk/x/gov/keeper"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
-	customtypes "github.com/donovansolms/cosmos-experiments/ai-governed-chain/x/gov/customtypes"
+	customtypes "github.com/donovansolms/cosmos-experiments/ai-governed-validator/x/gov/customtypes"
 )
 
 // Keeper defines the governance module Keeper

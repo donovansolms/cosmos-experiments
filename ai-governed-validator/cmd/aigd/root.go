@@ -22,8 +22,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/crisis"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 
-	aiapp "github.com/donovansolms/cosmos-experiments/ai-governed-chain/app"
-	"github.com/donovansolms/cosmos-experiments/ai-governed-chain/x/gov"
+	aiapp "github.com/donovansolms/cosmos-experiments/ai-governed-validator/app"
+	"github.com/donovansolms/cosmos-experiments/ai-governed-validator/x/gov"
 )
 
 //------------------------------------------------------------------------------

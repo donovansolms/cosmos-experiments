@@ -81,9 +81,9 @@ import (
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
 	// customized core modules
-	customgov "github.com/donovansolms/cosmos-experiments/ai-governed-chain/x/gov"
-	customgovtypes "github.com/donovansolms/cosmos-experiments/ai-governed-chain/x/gov/customtypes"
-	customgovkeeper "github.com/donovansolms/cosmos-experiments/ai-governed-chain/x/gov/keeper"
+	customgov "github.com/donovansolms/cosmos-experiments/ai-governed-validator/x/gov"
+	customgovtypes "github.com/donovansolms/cosmos-experiments/ai-governed-validator/x/gov/customtypes"
+	customgovkeeper "github.com/donovansolms/cosmos-experiments/ai-governed-validator/x/gov/keeper"
 
 	// ibc modules
 	ibctransfer "github.com/cosmos/ibc-go/v6/modules/apps/transfer"

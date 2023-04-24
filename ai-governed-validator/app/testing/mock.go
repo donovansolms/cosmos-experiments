@@ -18,7 +18,7 @@ import (
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	aiapp "github.com/donovansolms/cosmos-experiments/ai-governed-chain/app"
+	aiapp "github.com/donovansolms/cosmos-experiments/ai-governed-validator/app"
 )
 
 // MakeMockApp create a mockup `AIApp` instance for testing purposes.

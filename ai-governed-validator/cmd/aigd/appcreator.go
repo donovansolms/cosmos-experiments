@@ -19,7 +19,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/store"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	aiapp "github.com/donovansolms/cosmos-experiments/ai-governed-chain/app"
+	aiapp "github.com/donovansolms/cosmos-experiments/ai-governed-validator/app"
 )
 
 // appCreator is a wrapper for EncodingConfig. This allows us to reuse

@@ -1,4 +1,4 @@
-module github.com/donovansolms/cosmos-experiments/ai-governed-chain
+module github.com/donovansolms/cosmos-experiments/ai-governed-validator
 
 go 1.19
 

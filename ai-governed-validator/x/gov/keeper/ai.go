@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	v1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
-	customtypes "github.com/donovansolms/cosmos-experiments/ai-governed-chain/x/gov/customtypes"
+	customtypes "github.com/donovansolms/cosmos-experiments/ai-governed-validator/x/gov/customtypes"
 	"github.com/sashabaranov/go-openai"
 )
 
@@ -72,6 +72,9 @@ func (keeper Keeper) DetermineProposalVote(proposal v1.Proposal) (v1.VoteOption,
 		fmt.Printf("Unable to parse vote response: %v\n", err)
 		return vote, "", err
 	}
+
+	fmt.Println("Result from OpenAI:")
+	fmt.Println(resp.Choices[0].Message.Content)
 
 	switch strings.ToLower(voteResponse.Vote) {
 	case "yes":
