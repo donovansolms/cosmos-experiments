@@ -25,7 +25,7 @@ The validator takes two new flags `ai.openai_key` and `ai.rules`.
 `ai.openai_key` specifies the OpenAI API key while
 `ai.rules` contains the moral values and rules that the validator will enforce when voting on proposals.
 
-The prompt it constructs:
+**The prompt it constructs**
 
 Using a system message, we force the API to always provide us the result in JSON, see [ai.go](./x/gov/keeper/ai.go#L50)
 ```markdown
@@ -74,7 +74,14 @@ note these votes are based on **AI interpretation** and does **not** represent m
 
 ```plaintext
 YES
-I vote yes on this proposal as it aligns with my values and the rules outlined for a validator in the Cosmos ecosystem. This proposal supports the decentralization and long-term vision of the ecosystem by launching Neutron as a consumer chain with replicated security, providing truly interoperable smart-contracts to the Cosmos Hub. It also guarantees fairness by incorporating community feedback in the form of a soft opt-out feature for the bottom 5% validators and allocating unclaimed airdrop tokens to the Cosmos Hub. Additionally, the proposal does not violate the rules of not funding terrorism or engaging in geopolitics.
+I vote yes on this proposal as it aligns with my values and the rules outlined 
+for a validator in the Cosmos ecosystem. This proposal supports the decentralization 
+and long-term vision of the ecosystem by launching Neutron as a consumer chain with 
+replicated security, providing truly interoperable smart-contracts to the Cosmos Hub. 
+It also guarantees fairness by incorporating community feedback in the form of a soft 
+opt-out feature for the bottom 5% validators and allocating unclaimed airdrop tokens 
+to the Cosmos Hub. Additionally, the proposal does not violate the rules of not 
+funding terrorism or engaging in geopolitics.
 ```
 
 **2. Proposal #791 On Cosmos Hub: Legal Defense Fund Proposal**
@@ -83,7 +90,15 @@ I vote yes on this proposal as it aligns with my values and the rules outlined f
 
 ```plaintext
 NO
-While I agree with the principle of supporting community members, we must also consider the principle of fairness and transparency. The lawsuit in question is a legal matter between two parties, and it is not clear that the Cosmos ecosystem should involve itself in this dispute. Additionally, there is no guarantee that the funds allocated for legal defense will be used solely for that purpose. Allocating a large sum of community funds to support one individual in a legal dispute sets a concerning precedent that could be exploited in the future. Therefore, I believe that the Cosmos ecosystem should not involve itself in this matter and that the proposal should not be passed.
+While I agree with the principle of supporting community members, we must also 
+consider the principle of fairness and transparency. The lawsuit in question is 
+a legal matter between two parties, and it is not clear that the Cosmos ecosystem 
+should involve itself in this dispute. Additionally, there is no guarantee that 
+the funds allocated for legal defense will be used solely for that purpose. 
+Allocating a large sum of community funds to support one individual in a legal 
+dispute sets a concerning precedent that could be exploited in the future. 
+Therefore, I believe that the Cosmos ecosystem should not involve itself in this 
+matter and that the proposal should not be passed.
 ```
 
 **3. Proposal #3 On Mars Hub: Enable IBC on Mars Hub**
@@ -92,7 +107,17 @@ While I agree with the principle of supporting community members, we must also c
 
 ```plaintext
 YES
-I vote YES on this proposal as it aligns with rule 4 of committing to the long-term success of the Cosmos ecosystem by enabling the use of IBC, which benefits both Mars Hub and the entire ecosystem. Additionally, this proposal does not violate rules 1, 2, 3, 5, 6, and 7. Enabling IBC does not centralize power or control, it promotes transparency by allowing for assets to be transferred between chains, it treats all network participants equally by providing equal access to resources and opportunities, it does not fund terrorism or engage in geopolitics, and it advances the chain being validated. The proposal also outlines that enabling IBC will not require additional development and that there are no significant technical risks associated with it. Therefore, I vote YES on this proposal to enable IBC on Mars Hub.
+I vote YES on this proposal as it aligns with rule 4 of committing to the long-term 
+success of the Cosmos ecosystem by enabling the use of IBC, which benefits both 
+Mars Hub and the entire ecosystem. Additionally, this proposal does not violate 
+rules 1, 2, 3, 5, 6, and 7. Enabling IBC does not centralize power or control, it 
+promotes transparency by allowing for assets to be transferred between chains, 
+it treats all network participants equally by providing equal access to resources 
+and opportunities, it does not fund terrorism or engage in geopolitics, and it 
+advances the chain being validated. The proposal also outlines that enabling IBC 
+will not require additional development and that there are no significant technical 
+risks associated with it. Therefore, I vote YES on this proposal to enable IBC 
+on Mars Hub.
 ```
 
 
