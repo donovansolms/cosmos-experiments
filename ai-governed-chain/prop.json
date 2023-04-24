@@ -1,0 +1,12 @@
+{
+  "title": "Decrease unbonding time",
+  "description": "This proposal aims to reverd the unbonding time from 1 day to 1 hour for testing",
+  "changes": [
+    {
+      "subspace": "staking",
+      "key": "UnbondingTime",
+      "value": "3600000000000"
+    }
+  ],
+  "deposit": "10000000stake"
+}
