@@ -29,8 +29,6 @@ func NewMsgServerImpl(k Keeper) govv1.MsgServer {
 func (ms msgServer) SubmitProposal(goCtx context.Context, msg *govv1.MsgSubmitProposal) (*govv1.MsgSubmitProposalResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
-	fmt.Println("SUUUBMITTT PROP!!")
-
 	proposalMsgs, err := msg.GetMsgs()
 	if err != nil {
 		return nil, err

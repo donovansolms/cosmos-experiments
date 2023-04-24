@@ -65,6 +65,7 @@ func NewLegacyQueryServerImpl(qs govv1.QueryServer) govv1beta1.QueryServer {
 }
 
 func (qs legacyQueryServer) TallyResult(goCtx context.Context, req *govv1beta1.QueryTallyResultRequest) (*govv1beta1.QueryTallyResultResponse, error) {
+
 	resp, err := qs.qs.TallyResult(goCtx, &govv1.QueryTallyResultRequest{
 		ProposalId: req.ProposalId,
 	})

@@ -1,12 +1,9 @@
 package keeper
 
 import (
-	"fmt"
-
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/codec"
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
-	"github.com/cosmos/cosmos-sdk/x/gov/types"
 
 	govkeeper "github.com/cosmos/cosmos-sdk/x/gov/keeper"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
@@ -39,18 +36,8 @@ func NewKeeper(
 	config customtypes.Config,
 ) Keeper {
 
-	fmt.Println("\n\n============GOV KEEPER ======== \n\n")
-
-	// If MaxMetadataLen not set by app developer, set to default value.
-	if config.MaxMetadataLen == 0 {
-		config.MaxMetadataLen = types.DefaultConfig().MaxMetadataLen
-	}
-
-	fmt.Println("Config:", config.OpenAIKey)
-	fmt.Println("key:", key)
-
 	govConfig := govtypes.Config{
-		MaxMetadataLen: config.MaxMetadataLen,
+		MaxMetadataLen: 4096,
 	}
 
 	return Keeper{

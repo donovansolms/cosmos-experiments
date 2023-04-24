@@ -11,96 +11,37 @@ import (
 
 // GetDeposit gets the deposit of a specific depositor on a specific proposal
 func (keeper Keeper) GetDeposit(ctx sdk.Context, proposalID uint64, depositorAddr sdk.AccAddress) (deposit v1.Deposit, found bool) {
-	store := ctx.KVStore(keeper.storeKey)
-	bz := store.Get(types.DepositKey(proposalID, depositorAddr))
-	if bz == nil {
-		return deposit, false
-	}
-	keeper.cdc.MustUnmarshal(bz, &deposit)
-
-	return deposit, true
+	return keeper.Keeper.GetDeposit(ctx, proposalID, depositorAddr)
 }
 
 // SetDeposit sets a Deposit to the gov store
 func (keeper Keeper) SetDeposit(ctx sdk.Context, deposit v1.Deposit) {
-	store := ctx.KVStore(keeper.storeKey)
-	bz := keeper.cdc.MustMarshal(&deposit)
-	depositor := sdk.MustAccAddressFromBech32(deposit.Depositor)
-
-	store.Set(types.DepositKey(deposit.ProposalId, depositor), bz)
+	keeper.Keeper.SetDeposit(ctx, deposit)
 }
 
 // GetAllDeposits returns all the deposits from the store
 func (keeper Keeper) GetAllDeposits(ctx sdk.Context) (deposits v1.Deposits) {
-	keeper.IterateAllDeposits(ctx, func(deposit v1.Deposit) bool {
-		deposits = append(deposits, &deposit)
-		return false
-	})
-
-	return
+	return keeper.Keeper.GetAllDeposits(ctx)
 }
 
 // GetDeposits returns all the deposits from a proposal
 func (keeper Keeper) GetDeposits(ctx sdk.Context, proposalID uint64) (deposits v1.Deposits) {
-	keeper.IterateDeposits(ctx, proposalID, func(deposit v1.Deposit) bool {
-		deposits = append(deposits, &deposit)
-		return false
-	})
-
-	return
+	return keeper.Keeper.GetDeposits(ctx, proposalID)
 }
 
 // DeleteAndBurnDeposits deletes and burn all the deposits on a specific proposal.
 func (keeper Keeper) DeleteAndBurnDeposits(ctx sdk.Context, proposalID uint64) {
-	store := ctx.KVStore(keeper.storeKey)
-
-	keeper.IterateDeposits(ctx, proposalID, func(deposit v1.Deposit) bool {
-		err := keeper.bankKeeper.BurnCoins(ctx, types.ModuleName, deposit.Amount)
-		if err != nil {
-			panic(err)
-		}
-
-		depositor := sdk.MustAccAddressFromBech32(deposit.Depositor)
-
-		store.Delete(types.DepositKey(proposalID, depositor))
-		return false
-	})
+	keeper.Keeper.DeleteAndBurnDeposits(ctx, proposalID)
 }
 
 // IterateAllDeposits iterates over all the stored deposits and performs a callback function
 func (keeper Keeper) IterateAllDeposits(ctx sdk.Context, cb func(deposit v1.Deposit) (stop bool)) {
-	store := ctx.KVStore(keeper.storeKey)
-	iterator := sdk.KVStorePrefixIterator(store, types.DepositsKeyPrefix)
-
-	defer iterator.Close()
-
-	for ; iterator.Valid(); iterator.Next() {
-		var deposit v1.Deposit
-
-		keeper.cdc.MustUnmarshal(iterator.Value(), &deposit)
-
-		if cb(deposit) {
-			break
-		}
-	}
+	keeper.Keeper.IterateAllDeposits(ctx, cb)
 }
 
 // IterateDeposits iterates over all the proposals deposits and performs a callback function
 func (keeper Keeper) IterateDeposits(ctx sdk.Context, proposalID uint64, cb func(deposit v1.Deposit) (stop bool)) {
-	store := ctx.KVStore(keeper.storeKey)
-	iterator := sdk.KVStorePrefixIterator(store, types.DepositsKey(proposalID))
-
-	defer iterator.Close()
-
-	for ; iterator.Valid(); iterator.Next() {
-		var deposit v1.Deposit
-
-		keeper.cdc.MustUnmarshal(iterator.Value(), &deposit)
-
-		if cb(deposit) {
-			break
-		}
-	}
+	keeper.Keeper.IterateDeposits(ctx, proposalID, cb)
 }
 
 // AddDeposit adds or updates a deposit of a specific depositor on a specific proposal.
@@ -163,17 +104,5 @@ func (keeper Keeper) AddDeposit(ctx sdk.Context, proposalID uint64, depositorAdd
 
 // RefundAndDeleteDeposits refunds and deletes all the deposits on a specific proposal.
 func (keeper Keeper) RefundAndDeleteDeposits(ctx sdk.Context, proposalID uint64) {
-	store := ctx.KVStore(keeper.storeKey)
-
-	keeper.IterateDeposits(ctx, proposalID, func(deposit v1.Deposit) bool {
-		depositor := sdk.MustAccAddressFromBech32(deposit.Depositor)
-
-		err := keeper.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, depositor, deposit.Amount)
-		if err != nil {
-			panic(err)
-		}
-
-		store.Delete(types.DepositKey(proposalID, depositor))
-		return false
-	})
+	keeper.Keeper.RefundAndDeleteDeposits(ctx, proposalID)
 }

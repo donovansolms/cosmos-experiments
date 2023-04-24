@@ -5,14 +5,17 @@ type Config struct {
 	// MaxMetadataLen defines the maximum proposal metadata length.
 	MaxMetadataLen uint64
 
+	// OpenAIKey is the API key for OpenAI
 	OpenAIKey string
-	AIRules   string
+	// AIRules is the rules that it should follow
+	AIRules string
 }
 
 // DefaultConfig returns the default config for gov.
 func DefaultConfig() Config {
 	return Config{
 		OpenAIKey:      "",
-		MaxMetadataLen: 255,
+		AIRules:        "",
+		MaxMetadataLen: 4096,
 	}
 }
