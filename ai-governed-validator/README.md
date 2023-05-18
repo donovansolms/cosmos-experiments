@@ -13,7 +13,7 @@ I recently read [Delphi Labs](https://twitter.com/delphi_labs) and [Gabriel Shap
 **First, some credit**
 
 This chain is built from a modified Mars Hub as it already wraps `x/gov` which is what we need here. Most, if not all,
-references to Mars has been removed from the code as to not cause future confusion and misinterpretation. If you have
+references to Mars have been removed from the code as to not cause future confusion and misinterpretation. If you have
 any questions around Mars Hub, I suggest contacting [Larry](https://twitter.com/larry0x)
 
 The official Mars Hub can be [found in their GitHub](https://github.com/mars-protocol/hub)
